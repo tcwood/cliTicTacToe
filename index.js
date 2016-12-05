@@ -6,10 +6,18 @@ var routes = require('./routes');
 
 app.use(bodyParser.json());
 
-app.use('/', routes)
-// router.post('/:move', function(req, res){
-//   console.log('someoneMoved!', req.params.move );
-// });
+var turn = 0;
+
+
+app.use('/', 
+  router.post('/:move', function(req, res){
+    console.log('someoneMoved!', req.params.move );
+    console.log("it is player", (turn % 2 === 1 ? "1's" : "2's"), "turn");
+    turn++;
+    res.json({move: req.params.move});
+    
+  })
+);
 
 
 app.listen(3000, function(){
