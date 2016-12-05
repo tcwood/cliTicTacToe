@@ -6,12 +6,20 @@ var routes = require('./routes');
 
 app.use(bodyParser.json());
 
-var turn = 0;
-
+var turn = 1;
+var board = ['E', 'E', 'E',
+             'E', 'E', 'E',
+             'E', 'E', 'E']
 
 app.use('/', 
   router.post('/:move', function(req, res){
     console.log('someoneMoved!', req.params.move );
+    var currentPiece = 'X';
+    if (turn % 2 === 1) {
+      currentPiece = 'O';
+    };
+    board.splice(req.params.move, 1, currentPiece);
+    console.log('current board is', board);
     console.log("it is player", (turn % 2 === 1 ? "1's" : "2's"), "turn");
     turn++;
     res.json({move: req.params.move});
