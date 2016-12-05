@@ -35,7 +35,9 @@ app.use('/',
 
 app.listen(3000, function(){
   console.log('The game has begun!! Do a post');
-  console.log('request at the following #s to play')
+  console.log('request at the following #s to play');
+  console.log('(i.e. send a post req to localhost/3');
+  console.log('  to move on the square labeled 3');
   console.log('     |           |      ');
   console.log('  0  |     1     |   2  ');
   console.log('     |           |      ');
@@ -47,5 +49,7 @@ app.listen(3000, function(){
   console.log('     |           |      ');
   console.log('  6  |     7     |   8  ');
   console.log('     |           |      ');
+  console.log('Player 1, you may begin the game!')
 });
+
 
